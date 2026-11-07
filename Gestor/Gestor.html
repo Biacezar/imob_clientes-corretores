@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOB Tá Na Mão - Painel do Gestor</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonte Google Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Ficheiro CSS Estilos Personalizados -->
+  <link rel="stylesheet" href="Gestor.css">
+</head>
+<body class="min-h-screen bg-[#0b1120] text-slate-100 pb-12">
+
+  <!-- NAVBAR SUPERIOR BRANCA -->
+  <header class="bg-white text-slate-800 shadow-md sticky top-0 z-50 px-4 sm:px-8 py-3 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <!-- LOGO IMOB TÁ NA MÃO -->
+      <img src="../imagens/imobLogo.jpg" alt="IMOB Tá Na Mão" class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover">
+      </div>
+      <div class="flex items-center text-xl sm:text-2xl font-bold tracking-tight">
+        <span class="text-[#0d1b2a]">IMOB</span>
+        <span class="text-[#c59b27] ml-1.5">Tá Na Mão</span>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="flex items-center gap-1 sm:gap-2 overflow-x-auto text-sm font-medium">
+      <button onclick="switchTab('inicio')" id="tab-inicio" class="nav-btn font-medium">Início</button>
+      <button onclick="switchTab('cadastro')" id="tab-cadastro" class="nav-btn font-medium">Cadastro</button>
+      <button onclick="switchTab('corretor')" id="tab-corretor" class="nav-btn font-medium">Corretor</button>
+      <button onclick="switchTab('acompanhamento')" id="tab-acompanhamento" class="nav-btn font-medium">Acompanhamento</button>
+      <button onclick="switchTab('historico')" id="tab-historico" class="nav-btn font-medium">Histórico</button>
+      <button onclick="switchTab('gestor')" id="tab-gestor" class="nav-btn active-gestor">Gestor</button>
+    </nav>
+  </header>
+
+  <!-- CONTAINER PRINCIPAL -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
+
+    <!-- SEÇÃO HERO (EXIBIDA APENAS NO INÍCIO) -->
+    <section id="sec-inicio" class="hidden mb-8 bg-[#0f172a] border border-slate-800 border-l-4 border-l-[#c59b27] rounded-xl p-6 sm:p-8 shadow-xl">
+      <span class="text-xs font-bold tracking-wider text-[#c59b27] uppercase">Sua imobiliária no bolso</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold mt-1 mb-3 text-white">
+        IMOB <span class="text-[#c59b27]">Tá Na Mão</span>
+      </h1>
+      <p class="text-slate-300 max-w-2xl text-sm sm:text-base mb-6 leading-relaxed">
+        Apartamentos na planta pelo Minha Casa Minha Vida e imóveis prontos. Escolha, simule e fale com um corretor parceiro em poucos toques.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <button class="bg-[#c59b27] hover:bg-[#b0881e] text-slate-950 font-bold px-6 py-2.5 rounded-lg text-sm transition-all shadow-md">
+          Solicitar atendimento
+        </button>
+        <button class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-2.5 rounded-lg text-sm border border-slate-700 transition-all">
+          Cadastro completo
+        </button>
+      </div>
+    </section>
+
+    <!-- PAINEL DO GESTOR -->
+    <section id="sec-gestor" class="space-y-6">
+
+      <!-- CARD SUPERIOR COM CÍRCULOS DE INDICADORES -->
+      <div class="bg-[#0f172a] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+        
+        <!-- ELEMENTOS DE ONDA & CÍRCULOS INTERATIVOS -->
+        <div class="relative w-full h-36 flex items-center justify-around my-2">
+          <!-- Linhas de Onda SVG de fundo -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" viewBox="0 0 600 120" preserveAspectRatio="none">
+            <path d="M0,60 C150,110 300,10 450,110 C520,150 600,60 600,60" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="4 4" />
+            <path d="M0,60 C150,10 300,110 450,10 C520,-20 600,60 600,60" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4 4" />
+          </svg>
+
+          <!-- Círculo Corretores -->
+          <div class="circle-badge border-blue-500 bg-blue-950/40 text-blue-300">
+            <span class="text-xs sm:text-sm font-semibold">Corretores</span>
+          </div>
+
+          <!-- Círculo Clientes -->
+          <div class="circle-badge w-28 h-28 sm:w-32 sm:h-32 border-emerald-500 bg-emerald-950/40 text-emerald-300">
+            <span class="text-sm sm:text-base font-semibold">Clientes</span>
+          </div>
+
+          <!-- Círculo Agendamentos -->
+          <div class="circle-badge border-amber-500 bg-amber-950/40 text-amber-300">
+            <span class="text-xs sm:text-sm font-semibold">Agendamentos</span>
+          </div>
+        </div>
+
+        <hr class="border-slate-800/80 my-6">
+
+        <!-- MÉTRICAS DE VENDAS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+          <div class="metric-col md:border-r border-slate-800">
+            <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Vendas Totais</span>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1">R$ 4.487.500</div>
+          </div>
+          <div class="metric-col md:border-r border-slate-800">
+            <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Taxa Conversão</span>
+            <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 mt-1">28%</div>
+          </div>
+          <div class="metric-col">
+            <span class="text-xs font-bold text-slate-400 tracking-wider uppercase">Eficiência</span>
+            <div class="text-2xl sm:text-3xl font-extrabold text-amber-400 mt-1">88%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARDS DE CONTAGEM RÁPIDA -->
+      <div class="grid grid-cols-3 gap-4 text-center py-2">
+        <div class="card-box">
+          <span class="text-xs text-slate-400 font-medium">Corretores</span>
+          <div class="text-lg sm:text-xl font-bold text-white mt-0.5"><span class="text-blue-400">3</span> Ativos</div>
+        </div>
+        <div class="card-box">
+          <span class="text-xs text-slate-400 font-medium">Clientes</span>
+          <div class="text-lg sm:text-xl font-bold text-white mt-0.5"><span class="text-emerald-400">5</span> Registrados</div>
+        </div>
+        <div class="card-box">
+          <span class="text-xs text-slate-400 font-medium">Agendamentos</span>
+          <div class="text-lg sm:text-xl font-bold text-white mt-0.5"><span class="text-amber-400">3</span> Próximos</div>
+        </div>
+      </div>
+
+      <!-- EQUIPE DE CORRETORES -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            Equipe de Corretores
+          </h2>
+          <span class="bg-blue-900/60 text-blue-400 text-xs font-bold px-2.5 py-1 rounded-full border border-blue-800/50">3</span>
+        </div>
+
+        <div class="space-y-2.5">
+          <!-- Ana Souza -->
+          <div class="card-item">
+            <div class="flex items-center gap-3">
+              <div class="avatar bg-blue-600 text-white">
+                A
+                <span class="status-dot"></span>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-sm">Ana Souza</h3>
+                <p class="text-xs text-slate-400">14 clientes vinculados</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-extrabold text-white">R$ 1.562.500</span>
+              <p class="text-[10px] text-slate-400 uppercase tracking-wider">Vendas totais</p>
+            </div>
+          </div>
+
+          <!-- Carlos Lima -->
+          <div class="card-item">
+            <div class="flex items-center gap-3">
+              <div class="avatar bg-amber-500 text-slate-950">
+                C
+                <span class="status-dot"></span>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-sm">Carlos Lima</h3>
+                <p class="text-xs text-slate-400">8 clientes vinculados</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-extrabold text-white">R$ 1.112.500</span>
+              <p class="text-[10px] text-slate-400 uppercase tracking-wider">Vendas totais</p>
+            </div>
+          </div>
+
+          <!-- Vinícius Bispo -->
+          <div class="card-item">
+            <div class="flex items-center gap-3">
+              <div class="avatar bg-rose-600 text-white">
+                V
+                <span class="status-dot"></span>
+              </div>
+              <div>
+                <h3 class="font-bold text-white text-sm">Vinícius Bispo</h3>
+                <p class="text-xs text-slate-400">12 clientes vinculados</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-extrabold text-white">R$ 1.812.500</span>
+              <p class="text-[10px] text-slate-400 uppercase tracking-wider">Vendas totais</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ÚLTIMOS CADASTROS -->
+      <div class="space-y-3 pt-2">
+        <div class="flex items-center justify-between">
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            Últimos Cadastros
+          </h2>
+          <span class="bg-emerald-900/60 text-emerald-400 text-xs font-bold px-2.5 py-1 rounded-full border border-emerald-800/50">5</span>
+        </div>
+
+        <div class="space-y-2.5">
+          <!-- Marcos Silva -->
+          <div class="card-item">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-white text-sm">Marcos Silva</h3>
+                <span class="tag">Hoje</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Vila Horizonte</p>
+              <p class="text-xs text-slate-400 mt-1">Responsável: <span class="text-blue-400 font-medium">Marina Alves</span></p>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-extrabold text-white">R$ 450.000</span>
+            </div>
+          </div>
+
+          <!-- Carla Dias -->
+          <div class="card-item">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-white text-sm">Carla Dias</h3>
+                <span class="tag">Hoje</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Edifício Solar</p>
+              <p class="text-xs text-slate-400 mt-1">Responsável: <span class="text-blue-400 font-medium">Carlos Lima</span></p>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-extrabold text-white">R$ 890.000</span>
+            </div>
+          </div>
+
+          <!-- Bruno Reis -->
+          <div class="card-item">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-white text-sm">Bruno Reis</h3>
+                <span class="tag">Ontem</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Residencial Bosque</p>
+              <p class="text-xs text-slate-400 mt-1">Responsável: <span class="text-blue-400 font-medium">Ana Souza</span></p>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-extrabold text-white">R$ 620.000</span>
+            </div>
+          </div>
+
+          <!-- Luiza Matos -->
+          <div class="card-item">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-white text-sm">Luiza Matos</h3>
+                <span class="tag">Ontem</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Condomínio Parque Azul</p>
+              <p class="text-xs text-slate-400 mt-1">Responsável: <span class="text-blue-400 font-medium">Marina Alves</span></p>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-extrabold text-white">R$ 1.200.000</span>
+            </div>
+          </div>
+
+          <!-- Pedro Santos -->
+          <div class="card-item">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="font-bold text-white text-sm">Pedro Santos</h3>
+                <span class="tag">2 dias atrás</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Residencial Vista Verde</p>
+              <p class="text-xs text-slate-400 mt-1">Responsável: <span class="text-blue-400 font-medium">Vinícius Bispo</span></p>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-extrabold text-white">R$ 350.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AGENDAMENTOS PRÓXIMOS -->
+      <div class="space-y-3 pt-2">
+        <div class="flex items-center justify-between">
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Agendamentos Próximos
+          </h2>
+          <span class="bg-amber-900/60 text-amber-400 text-xs font-bold px-2.5 py-1 rounded-full border border-amber-800/50">3</span>
+        </div>
+
+        <div class="space-y-2.5">
+          <!-- Item 1 -->
+          <div class="card-item justify-start gap-4">
+            <div class="time-badge">
+              <span class="text-xs font-bold text-amber-400 block">10:00</span>
+              <span class="text-[9px] font-semibold text-slate-400 uppercase tracking-wider block">Hoje</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-sm">Marcos Silva</h3>
+              <p class="text-xs text-slate-400">Visita Técnica</p>
+              <p class="text-xs text-blue-400 mt-0.5">Marina Alves</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="card-item justify-start gap-4">
+            <div class="time-badge">
+              <span class="text-xs font-bold text-amber-400 block">14:30</span>
+              <span class="text-[9px] font-semibold text-slate-400 uppercase tracking-wider block">Hoje</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-sm">Carla Dias</h3>
+              <p class="text-xs text-slate-400">Assinatura Contrato</p>
+              <p class="text-xs text-blue-400 mt-0.5">Carlos Lima</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="card-item justify-start gap-4">
+            <div class="time-badge">
+              <span class="text-xs font-bold text-amber-400 block">16:00</span>
+              <span class="text-[9px] font-semibold text-slate-400 uppercase tracking-wider block">Hoje</span>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-sm">Bruno Reis</h3>
+              <p class="text-xs text-slate-400">Apresentação Planta</p>
+              <p class="text-xs text-blue-400 mt-0.5">Ana Souza</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTROLES & FILTROS INFERIORES -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+        <!-- Filtro de Corretores -->
+        <div class="card-box">
+          <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2.5">Filtro de Corretores</label>
+          <div class="flex gap-2">
+            <button class="flex-1 py-2 text-xs font-semibold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Todos</button>
+            <button class="flex-1 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow-md transition-colors">Disponíveis</button>
+          </div>
+        </div>
+
+        <!-- Projeção de Metas -->
+        <div class="card-box">
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Projeção de Metas de Venda</label>
+            <span class="text-xs font-bold text-blue-400" id="goal-val">+25%</span>
+          </div>
+          <input type="range" min="0" max="100" value="25" oninput="document.getElementById('goal-val').innerText = '+' + this.value + '%'" class="w-full accent-blue-500 bg-slate-800 rounded-lg cursor-pointer h-2">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PLACEHOLDER SEÇÕES -->
+    <section id="sec-placeholder" class="hidden bg-[#0f172a] border border-slate-800 rounded-2xl p-12 text-center my-8">
+      <h2 id="placeholder-title" class="text-2xl font-bold text-white mb-2"></h2>
+      <p class="text-slate-400 text-sm">Módulo em execução no protótipo web da plataforma IMOB Tá Na Mão.</p>
+    </section>
+
+  </main>
+
+  <script>
+    function switchTab(tabName) {
+      const tabs = ['inicio', 'cadastro', 'corretor', 'acompanhamento', 'historico', 'gestor'];
+      
+      tabs.forEach(t => {
+        const btn = document.getElementById('tab-' + t);
+        if (btn) {
+          if (t === tabName) {
+            btn.className = "nav-btn active-gestor";
+          } else {
+            btn.className = "nav-btn font-medium";
+          }
+        }
+      });
+
+      const secInicio = document.getElementById('sec-inicio');
+      const secGestor = document.getElementById('sec-gestor');
+      const secPlaceholder = document.getElementById('sec-placeholder');
+      const placeholderTitle = document.getElementById('placeholder-title');
+
+      if (tabName === 'inicio') {
+        secInicio.classList.remove('hidden');
+        secGestor.classList.add('hidden');
+        secPlaceholder.classList.add('hidden');
+      } else if (tabName === 'gestor') {
+        secInicio.classList.add('hidden');
+        secGestor.classList.remove('hidden');
+        secPlaceholder.classList.add('hidden');
+      } else {
+        secInicio.classList.add('hidden');
+        secGestor.classList.add('hidden');
+        secPlaceholder.classList.remove('hidden');
+        placeholderTitle.innerText = 'Módulo: ' + tabName.charAt(0).toUpperCase() + tabName.slice(1);
+      }
+    }
+  </script>
+</body>
+</html>

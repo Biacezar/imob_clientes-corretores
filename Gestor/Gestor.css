@@ -1,0 +1,137 @@
+/* Custom Styles - IMOB Tá Na Mão */
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0b1120;
+  color: #e2e8f0;
+}
+
+/* Botões da Navbar */
+.nav-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  color: #475569;
+}
+
+.nav-btn:hover {
+  color: #0f172a;
+}
+
+.active-gestor {
+  font-weight: 600;
+  background-color: #c59b27;
+  color: #ffffff !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Círculos com efeito de Blur e Animação */
+.circle-badge {
+  position: relative;
+  z-index: 10;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 9999px;
+  border-width: 2px;
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .circle-badge {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+.circle-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Cards e Caixas */
+.card-box {
+  background-color: #141e33;
+  border: 1px solid rgba(30, 41, 59, 0.8);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.card-item {
+  background-color: #141e33;
+  border: 1px solid rgba(30, 41, 59, 0.8);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s ease-in-out;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.card-item:hover {
+  background-color: #192642;
+}
+
+/* Colunas de Métricas */
+.metric-col {
+  border-left-width: 2px;
+  border-color: #1e293b;
+  padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .metric-col {
+    border-left-width: 0;
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+}
+
+/* Avatares dos Corretores */
+.avatar {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+}
+
+.status-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #10b981;
+  border: 2px solid #141e33;
+  border-radius: 9999px;
+}
+
+/* Badges e Tags */
+.tag {
+  background-color: #1e293b;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.time-badge {
+  background-color: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  min-width: 70px;
+}

@@ -7,15 +7,16 @@
 
 body {
     background-color: #f7f5f0;
-    background-image: radial-gradient(#e5e0d8 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-image: url("../imagens/ImobFUNDO.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
 }
-body { background-image: url("imagens/IMOB\ TÁ\ NA\ MÃO\ FUNDO.png"); background-size: cover; background-position: center; background-repeat: no-repeat; }
 
 .container {
     display: flex;
