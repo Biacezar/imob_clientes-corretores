@@ -2,7 +2,7 @@
 
 ## A Revolução na Conexão Imobiliária
 
-A plataforma "Imóvel tá na mão" ressignifica o mercado imobiliário ao conectar, de forma inteligente e ágil, o sonho da casa própria à realidade dos clientes. Especializada em apartamentos na planta e no programa Minha Casa, Minha Vida, nossa solução centraliza e organiza toda a jornada de distribuição de imóveis. 
+A plataforma "Immob tá na mão" ressignifica o mercado imobiliário ao conectar, de forma inteligente e ágil, o sonho da casa própria à realidade dos clientes. Especializada em apartamentos na planta e no programa Minha Casa, Minha Vida, nossa solução centraliza e organiza toda a jornada de distribuição de imóveis. 
 
 Através de um ecossistema robusto e intuitivo, otimizamos a comunicação direta entre corretores e potenciais compradores, garantindo transparência, eficiência e agilidade em cada negociação.
 
