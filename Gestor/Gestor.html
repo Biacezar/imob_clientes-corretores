@@ -18,7 +18,6 @@
     <div class="flex items-center gap-3">
       <!-- LOGO IMOB TÁ NA MÃO -->
       <img src="../imagens/imobLogo.jpg" alt="IMOB Tá Na Mão" class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-cover">
-      </div>
       <div class="flex items-center text-xl sm:text-2xl font-bold tracking-tight">
         <span class="text-[#0d1b2a]">IMOB</span>
         <span class="text-[#c59b27] ml-1.5">Tá Na Mão</span>
@@ -26,40 +25,16 @@
     </div>
 
     <!-- NAVEGAÇÃO -->
-    <nav class="flex items-center gap-1 sm:gap-2 overflow-x-auto text-sm font-medium">
-      <button onclick="switchTab('inicio')" id="tab-inicio" class="nav-btn font-medium">Início</button>
-      <button onclick="switchTab('cadastro')" id="tab-cadastro" class="nav-btn font-medium">Cadastro</button>
-      <button onclick="switchTab('corretor')" id="tab-corretor" class="nav-btn font-medium">Corretor</button>
-      <button onclick="switchTab('acompanhamento')" id="tab-acompanhamento" class="nav-btn font-medium">Acompanhamento</button>
-      <button onclick="switchTab('historico')" id="tab-historico" class="nav-btn font-medium">Histórico</button>
-      <button onclick="switchTab('gestor')" id="tab-gestor" class="nav-btn active-gestor">Gestor</button>
+    <nav aria-label="Navegação principal" class="flex items-center text-sm font-medium">
+      <span aria-current="page" class="nav-btn active-gestor">Gestor</span>
     </nav>
   </header>
 
   <!-- CONTAINER PRINCIPAL -->
   <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
 
-    <!-- SEÇÃO HERO (EXIBIDA APENAS NO INÍCIO) -->
-    <section id="sec-inicio" class="hidden mb-8 bg-[#0f172a] border border-slate-800 border-l-4 border-l-[#c59b27] rounded-xl p-6 sm:p-8 shadow-xl">
-      <span class="text-xs font-bold tracking-wider text-[#c59b27] uppercase">Sua imobiliária no bolso</span>
-      <h1 class="text-3xl sm:text-4xl font-extrabold mt-1 mb-3 text-white">
-        IMOB <span class="text-[#c59b27]">Tá Na Mão</span>
-      </h1>
-      <p class="text-slate-300 max-w-2xl text-sm sm:text-base mb-6 leading-relaxed">
-        Apartamentos na planta pelo Minha Casa Minha Vida e imóveis prontos. Escolha, simule e fale com um corretor parceiro em poucos toques.
-      </p>
-      <div class="flex flex-wrap gap-3">
-        <button class="bg-[#c59b27] hover:bg-[#b0881e] text-slate-950 font-bold px-6 py-2.5 rounded-lg text-sm transition-all shadow-md">
-          Solicitar atendimento
-        </button>
-        <button class="bg-slate-800 hover:bg-slate-700 text-white font-medium px-6 py-2.5 rounded-lg text-sm border border-slate-700 transition-all">
-          Cadastro completo
-        </button>
-      </div>
-    </section>
-
     <!-- PAINEL DO GESTOR -->
-    <section id="sec-gestor" class="space-y-6">
+    <section class="space-y-6" aria-label="Painel do Gestor">
 
       <!-- CARD SUPERIOR COM CÍRCULOS DE INDICADORES -->
       <div class="bg-[#0f172a] border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
@@ -359,49 +334,6 @@
 
     </section>
 
-    <!-- PLACEHOLDER SEÇÕES -->
-    <section id="sec-placeholder" class="hidden bg-[#0f172a] border border-slate-800 rounded-2xl p-12 text-center my-8">
-      <h2 id="placeholder-title" class="text-2xl font-bold text-white mb-2"></h2>
-      <p class="text-slate-400 text-sm">Módulo em execução no protótipo web da plataforma IMOB Tá Na Mão.</p>
-    </section>
-
   </main>
-
-  <script>
-    function switchTab(tabName) {
-      const tabs = ['inicio', 'cadastro', 'corretor', 'acompanhamento', 'historico', 'gestor'];
-      
-      tabs.forEach(t => {
-        const btn = document.getElementById('tab-' + t);
-        if (btn) {
-          if (t === tabName) {
-            btn.className = "nav-btn active-gestor";
-          } else {
-            btn.className = "nav-btn font-medium";
-          }
-        }
-      });
-
-      const secInicio = document.getElementById('sec-inicio');
-      const secGestor = document.getElementById('sec-gestor');
-      const secPlaceholder = document.getElementById('sec-placeholder');
-      const placeholderTitle = document.getElementById('placeholder-title');
-
-      if (tabName === 'inicio') {
-        secInicio.classList.remove('hidden');
-        secGestor.classList.add('hidden');
-        secPlaceholder.classList.add('hidden');
-      } else if (tabName === 'gestor') {
-        secInicio.classList.add('hidden');
-        secGestor.classList.remove('hidden');
-        secPlaceholder.classList.add('hidden');
-      } else {
-        secInicio.classList.add('hidden');
-        secGestor.classList.add('hidden');
-        secPlaceholder.classList.remove('hidden');
-        placeholderTitle.innerText = 'Módulo: ' + tabName.charAt(0).toUpperCase() + tabName.slice(1);
-      }
-    }
-  </script>
 </body>
 </html>
