@@ -1,0 +1,99 @@
+:root{--blue:#60A5FA;--navy:#0D1B2A;--gold:#C59B27;--bg:#0B1120;--surface:#141E33;--ink:#E2E8F0;--muted:#94A3B8;--line:#1E293B;color-scheme:dark}
+@media (prefers-color-scheme:dark) and (max-width:0px){:root:not([data-theme="light"]){--blue:#1A4FA8;--navy:#0A1F47;--gold:#E0B63A;--bg:#0D1829;--surface:#15243B;--ink:#EEF2F8;--muted:#9FB0C8;--line:#263A57;color-scheme:dark}}
+:root[data-theme="dark"]{--blue:#1A4FA8;--navy:#0A1F47;--gold:#E0B63A;--bg:#0D1829;--surface:#15243B;--ink:#EEF2F8;--muted:#9FB0C8;--line:#263A57;color-scheme:dark}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#fff;z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#fff;border-bottom:3px solid var(--gold)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.btn{display:inline-block;border-radius:6px;padding:13px 18px;min-height:46px;font-weight:700;font-size:14px;cursor:pointer;border:0;text-align:center}
+.btn-gold{background:var(--gold);color:#14213A}
+.btn-blue{background:#2563EB;color:#fff}
+.btn-out{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.inp{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:6px;padding:10px 12px;font-size:16px}
+label{font-size:13px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px}
+.tab{padding:11px 16px;border-radius:6px;font-weight:700;font-size:14px;color:var(--navy);opacity:.8;text-decoration:none;white-space:nowrap}
+.tab.on{background:var(--gold);color:#fff;opacity:1}
+.kpi b{font-size:26px;color:#fff;display:block}
+
+.pill{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.bar{height:12px;border-radius:6px;background:var(--blue)}
+.err{color:#C0392B;font-size:12px;display:block}.board{display:grid;grid-template-columns:repeat(5,minmax(220px,1fr));gap:12px;overflow-x:auto;padding-bottom:8px}.col{background:#0F172A;border:1px solid var(--line);border-radius:8px;padding:10px;min-height:160px}.kcard{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;padding:10px;margin-bottom:8px;transition:box-shadow .15s}.kcard:hover{box-shadow:0 4px 12px rgba(11,31,63,.18)}.mv{border:1px solid var(--line);border-radius:6px;padding:4px 14px;cursor:pointer;color:var(--ink);background:var(--surface)}.mv:disabled{opacity:.3;cursor:default}.tl{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.dot{width:10px;height:10px;border-radius:50%;background:var(--gold);margin-top:5px;flex:none}.ttl{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--gold)}
+.card-item{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:background .2s}.card-item:hover{background:#192642}
+.avatar{position:relative;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex:none}.avatar i{position:absolute;right:0;bottom:0;width:11px;height:11px;border-radius:50%;background:#10B981;border:2px solid var(--surface)}
+.tag{background:#1E293B;color:#94A3B8;font-size:10px;font-weight:500;padding:2px 8px;border-radius:4px}
+.circ{width:6.5rem;height:6.5rem;border-radius:50%;border:2px solid;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;backdrop-filter:blur(12px);transition:transform .2s;cursor:default}.circ:hover{transform:scale(1.06)}
+.cnt{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(148,163,184,.1);border:1px solid var(--line)}
+.sub{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+th{text-align:left;font-size:12px;color:var(--muted);padding:6px 8px;white-space:nowrap}td{padding:8px;border-top:1px solid var(--line);font-size:14px}
+
+body.app-mode #appShell .max-w-6xl{width:100%;max-width:72rem}
+body.app-mode #appShell .mx-auto{margin-left:auto;margin-right:auto}
+body.app-mode #appShell .flex{display:flex}
+body.app-mode #appShell .grid{display:grid}
+body.app-mode #appShell .flex-1{flex:1 1 0%}
+body.app-mode #appShell .flex-wrap{flex-wrap:wrap}
+body.app-mode #appShell .items-center{align-items:center}
+body.app-mode #appShell .justify-between{justify-content:space-between}
+body.app-mode #appShell .justify-around{justify-content:space-around}
+body.app-mode #appShell .gap-1{gap:.25rem}
+body.app-mode #appShell .gap-2{gap:.5rem}
+body.app-mode #appShell .gap-3{gap:.75rem}
+body.app-mode #appShell .gap-4{gap:1rem}
+body.app-mode #appShell .gap-6{gap:1.5rem}
+body.app-mode #appShell .grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+body.app-mode #appShell .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.app-mode #appShell .px-4{padding-left:1rem;padding-right:1rem}
+body.app-mode #appShell .py-2{padding-top:.5rem;padding-bottom:.5rem}
+body.app-mode #appShell .py-3{padding-top:.75rem;padding-bottom:.75rem}
+body.app-mode #appShell .pb-3{padding-bottom:.75rem}
+body.app-mode #appShell .p-3{padding:.75rem}
+body.app-mode #appShell .p-4{padding:1rem}
+body.app-mode #appShell .mt-1{margin-top:.25rem}
+body.app-mode #appShell .mt-2{margin-top:.5rem}
+body.app-mode #appShell .mt-3{margin-top:.75rem}
+body.app-mode #appShell .mt-4{margin-top:1rem}
+body.app-mode #appShell .mt-6{margin-top:1.5rem}
+body.app-mode #appShell .mb-1{margin-bottom:.25rem}
+body.app-mode #appShell .mb-2{margin-bottom:.5rem}
+body.app-mode #appShell .mb-3{margin-bottom:.75rem}
+body.app-mode #appShell .mb-4{margin-bottom:1rem}
+body.app-mode #appShell .my-4{margin-top:1rem;margin-bottom:1rem}
+body.app-mode #appShell .w-full{width:100%}
+body.app-mode #appShell .overflow-x-auto{overflow-x:auto}
+body.app-mode #appShell .text-xs{font-size:.75rem}
+body.app-mode #appShell .text-sm{font-size:.875rem}
+body.app-mode #appShell .text-lg{font-size:1.125rem}
+body.app-mode #appShell .text-xl{font-size:1.25rem}
+body.app-mode #appShell .text-2xl{font-size:1.5rem}
+body.app-mode #appShell .text-4xl{font-size:2.25rem}
+body.app-mode #appShell .font-semibold{font-weight:600}
+body.app-mode #appShell .font-bold{font-weight:700}
+body.app-mode #appShell .font-extrabold{font-weight:800}
+body.app-mode #appShell .text-muted{color:var(--muted)}
+body.app-mode #appShell .text-gold{color:var(--gold)}
+body.app-mode #appShell .text-left{text-align:left}
+body.app-mode #appShell .text-right{text-align:right}
+body.app-mode #appShell .opacity-90{opacity:.9}
+body.app-mode #appShell .rounded-lg{border-radius:.5rem}
+body.app-mode #appShell .rounded-xl{border-radius:.75rem}
+body.app-mode #appShell .cursor-pointer{cursor:pointer}
+body.app-mode #appShell .underline{text-decoration:underline}
+body.app-mode #appShell .space-y-1>:not([hidden])~:not([hidden]){margin-top:.25rem}
+body.app-mode #appShell .space-y-2>:not([hidden])~:not([hidden]){margin-top:.5rem}
+body.app-mode #appShell .space-y-3>:not([hidden])~:not([hidden]){margin-top:.75rem}
+body.app-mode #appShell .space-y-4>:not([hidden])~:not([hidden]){margin-top:1rem}
+@media (min-width:640px){
+  body.app-mode #appShell .sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.app-mode #appShell .sm\:col-span-2{grid-column:span 2/span 2}
+}
+@media (min-width:768px){
+  body.app-mode #appShell .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.app-mode #appShell .md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  body.app-mode #appShell .md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (min-width:1024px){
+  body.app-mode #appShell .lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  body.app-mode #appShell .lg\:col-span-2{grid-column:span 2/span 2}
+}
