@@ -1,0 +1,21 @@
+IMOB Tá Na Mão - protótipo do TCC
+
+ESTRUTURA
+  index.html          estrutura da página (cabeçalho, menu, áreas de conteúdo)
+  css/style.css       cores, cartões, botões, quadro de acompanhamento
+  js/app.js           telas, login, distribuição de leads, banco simulado
+  imagens/            logo e fundo da tela de login
+
+COMO EXECUTAR
+  1. Extraia a pasta inteira (mantenha as subpastas).
+  2. Dê dois cliques em index.html (precisa de internet para o Tailwind e a fonte).
+  3. Entre com um acesso de demonstração:
+       gestor@imob.com.br  /  imob123
+       ana@imob.com.br     /  ana123
+       carlos@imob.com.br  /  carlos123
+       marina@imob.com.br  /  marina123
+     ou use "Continuar como cliente".
+
+OBSERVAÇÕES
+  - Os dados ficam no localStorage do navegador (banco simulado).
+  - O login é uma simulação; em produção use servidor e senhas criptografadas.
